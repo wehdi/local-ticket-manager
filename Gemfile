@@ -1,4 +1,3 @@
-source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -32,6 +31,13 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'jquery-rails'
+gem 'rails-ujs'
+#
+gem 'simple_form', '~> 4.0', '>= 4.0.1'
+#
+gem 'bootstrap', '~> 4.1.1'
+gem 'devise', '~> 4.4', '>= 4.4.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,0 +1,5 @@
+<h2><%= @message.title  %></h2>
+<p><%= @message.description  %></p>
+<%= link_to "List des demandes", messages_path, class: "btn btn-info" %>
+<%= link_to "Editer votre demande", edit_message_path, class: "btn btn-primary" %>
+<%= link_to "Suprimer", message_path(@message),method: :delete, data: {confirm: "Etes vous sure ?"}, class: "btn btn-danger" %>

@@ -1,0 +1,5 @@
+<%= simple_form_for @message do |m| %>
+  <%= m.input :title, label: "Titre de la demande" %>
+  <%= m.input :description %>
+  <%= m.button :submit, "Save" %>
+<% end %>
