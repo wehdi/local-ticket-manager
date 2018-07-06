@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :installs
+  devise_for :users
+  #devise_for :installs
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :messages
+  resources :messages do
+    resources :comments
+  end
   root 'messages#index'
 end
