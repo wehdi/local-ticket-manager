@@ -4,13 +4,16 @@ class CommentsController < ApplicationController
     @message = Message.find(params[:message_id])
     @comment = @message.comments.create(comment_params)
     @comment.user_id = current_user.id
-    @user = User.find_by_id(@comment.user_id)
-    @user.save
+    @user = User.find_by_id(157)
     if @comment.save
       redirect_to message_path(@message)
     else
       render 'new'
     end
+  end
+
+  def show
+  
   end
 
   private
