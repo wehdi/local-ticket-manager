@@ -1,0 +1,6 @@
+<h3>Comment edition</h3>
+<%= simple_form_for([@message, @comment]) do |f| %>
+<%= f.input :content, label: "Comment" %>
+<%= f.button :submit %>
+
+<% end %>
