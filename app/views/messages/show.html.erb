@@ -7,5 +7,9 @@
 <h4>  Reponse au message</h4>
 <%= render 'comments/form'  %>
 <%= link_to "List des demandes", messages_path, class: "btn btn-info" %>
-<%= link_to "Editer votre demande", edit_message_path, class: "btn btn-primary" %>
-<%= link_to "Suprimer", message_path(@message),method: :delete, data: {confirm: "Etes vous sure ?"}, class: "btn btn-danger" %>
+<% if user_signed_in? %>
+  <% if @message.user_id == current_user.id %>
+     <%= link_to "Editer votre demande", edit_message_path, class: "btn btn-primary" %>
+     <%= link_to "Suprimer", message_path(@message),method: :delete, data: {confirm: "Etes vous sure ?"}, class: "btn btn-danger" %>
+  <% end %>
+<% end %>
