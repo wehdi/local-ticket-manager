@@ -1,8 +1,8 @@
 class MessagesController < ApplicationController
   before_action :find_message, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:welcome]
   def index
-    @messages = Message.all.order("created_at DESC")
+    @messages = current_user.messages.all.order("created_at DESC")
   end
   def show
   end
@@ -19,7 +19,8 @@ class MessagesController < ApplicationController
   end
 
   def edit
-
+  end
+  def welcome
   end
 
   def update
