@@ -1,6 +1,7 @@
 <h2>Local Ticket Manager</h2>
 <% if user_signed_in? %>
-  <p>Bienvenu <i><%= current_user.username %></i></p>
+<p>Bienvenu <i><%= current_user.username %></i></p>
+  <p>Status <i><%= current_user.admin? %></i></p>
   <%= link_to "Tickets en cours", messages_path, class: "btn btn-lg btn-info"%>
   <%= link_to "Creer un ticket", new_message_path, class: "btn btn-lg btn-info"%>
 <% end %>

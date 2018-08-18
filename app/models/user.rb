@@ -1,9 +1,12 @@
+#
 class User < ApplicationRecord
   has_many :messages
   has_many :comments
   attr_accessor :login
+  attr_accessor :is_admin
 
   validates :username, presence: true, uniqueness: {case_sensitive: false}, format: {with: /\A[a-zA-Z0-9]*\z/}
+  validates :is_admin, presence: true
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
