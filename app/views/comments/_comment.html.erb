@@ -1,6 +1,6 @@
 
 <div>
-  <i>Par : <%= comment.user.email %> il y a <%= time_ago_in_words(comment.created_at)%></i>
+  <i>Par : <%= comment.user.username %> il y a <%= time_ago_in_words(comment.created_at)%></i>
 
   <p> <%= comment.content %></p>
   <% if user_signed_in? %>

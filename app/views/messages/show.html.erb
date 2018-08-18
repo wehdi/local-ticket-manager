@@ -1,5 +1,5 @@
 <h2><%= @message.title  %></h2>
-<p> creer par : <%= @message.user.email%> il y'a <%= time_ago_in_words(@message.created_at)%></p>
+<p> creer par : <%= @message.user.username%> il y'a <%= time_ago_in_words(@message.created_at)%></p>
 <p><%= @message.description  %></p>
 
 <h4>Reponse : </h4>
