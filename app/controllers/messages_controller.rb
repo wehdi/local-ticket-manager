@@ -2,12 +2,16 @@ class MessagesController < ApplicationController
   before_action :find_message, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:welcome]
   def index
-    @messages = current_user.messages.all.order("created_at DESC")
+    if current_user.admin?
+      @messages = Message.all.order('created_at DESC')
+    else
+      @messages = current_user.messages.all.order('created_at DESC')
+    end
   end
   def show
   end
   def new
-    @message =  current_user.messages.build
+    @message = current_user.messages.build
   end
   def create
     @message = current_user.messages.build(message_params)
