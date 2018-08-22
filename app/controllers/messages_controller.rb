@@ -1,18 +1,20 @@
+# Messages Controller
 class MessagesController < ApplicationController
-  before_action :find_message, only: [:show, :edit, :update, :destroy]
+  before_action :find_message, only: %I[show edit update destroy]
   before_action :authenticate_user!, except: [:welcome]
   def index
-    if current_user.admin?
-      @messages = Message.all.order('created_at DESC')
-    else
-      @messages = current_user.messages.all.order('created_at DESC')
-    end
+    @messages =
+      if current_user.admin?
+        Message.all.order('created_at DESC')
+      else
+        current_user.messages.all.order('created_at DESC')
+      end
   end
-  def show
-  end
+
   def new
     @message = current_user.messages.build
   end
+
   def create
     @message = current_user.messages.build(message_params)
     if @message.save
@@ -22,10 +24,11 @@ class MessagesController < ApplicationController
     end
   end
 
-  def edit
-  end
-  def welcome
-  end
+  def show; end
+
+  def edit; end
+
+  def welcome; end
 
   def update
     if @message.update(message_params)
@@ -34,6 +37,7 @@ class MessagesController < ApplicationController
       render 'edit'
     end
   end
+
   def destroy
     @message.destroy
     redirect_to messages_path
@@ -44,6 +48,7 @@ class MessagesController < ApplicationController
   def message_params
     params.require(:message).permit(:title, :description)
   end
+
   def find_message
     @message = Message.find(params[:id])
   end
