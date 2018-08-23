@@ -1,11 +1,12 @@
 <h1>List des demandes</h1>
 
 <% @messages.each do |message| %>
-<h3> <%= message.title %></h3>
-<%= link_to "consulter", message_path(message), class:"btn btn-info" %>
+  <h3> <%= message.title %></h3>
+  <%= link_to "consulter", message_path(message), class:"btn btn-info" %>
 <% end %>
 <% if user_signed_in?  %>
-<%= link_to "Nouvelle demande",new_message_path %>
+  <%= link_to "Nouvelle demande",new_message_path %>
 <% else  %>
-<%= link_to "Nouvelle demande",new_user_session_path %>
+  <%= link_to "Nouvelle demande",new_user_session_path %>
 <% end  %>
+<%= will_paginate @messages %>

@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
   def index
     @messages =
       if current_user.admin?
-        Message.all.order('created_at DESC')
+        Message.all.order('created_at DESC').all.paginate(page: params[:page], per_page: 5)
       else
         current_user.messages.all.order('created_at DESC')
       end

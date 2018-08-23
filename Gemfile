@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
 end
 gem 'bootstrap', '~> 4.1.1'
 gem 'devise', '~> 4.4', '>= 4.4.3'
+gem 'will_paginate', '~> 3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
@@ -36,18 +37,13 @@ gem 'rails-ujs'
 gem 'simple_form', '~> 4.0', '>= 4.0.1'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
-  gem 'selenium-webdriver'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   # gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'web-console', '>= 3.3.0'
+  # gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background.
   # Read more: https://github.com/rails/spring
   gem 'spring'
