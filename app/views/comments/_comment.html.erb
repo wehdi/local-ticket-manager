@@ -4,7 +4,7 @@
 
   <p> <%= comment.content %></p>
   <% if user_signed_in? %>
-    <% if comment.user_id == current_user.id %>
+    <% if comment.user_id == current_user.id || current_user.admin? %>
         <%= link_to "Edit", edit_message_comment_path(comment.message, comment) %>
         <%= link_to "Supprimer", message_comment_path(comment.message, comment), method: :delete, data: { confirm: "Etes vous sure ?"} %>
     <% end %>

@@ -24,6 +24,6 @@ end
   Comment.create(
     content: Faker::Lorem.paragraphs(rand(10..40)).join('\n'),
     user_id: Faker::Number.number(1),
-    message_id: Faker::Number.number(1)
+    message_id: Faker::Number.number(2)
   )
 end

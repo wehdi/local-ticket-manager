@@ -4,7 +4,7 @@
 
 <h4>Reponse : </h4>
 <%= render @message.comments  %>
-<h4>  Reponse au message</h4>
+<h4> Reponse au message</h4>
 <%= render 'comments/form'  %>
 <%= link_to "List des demandes", messages_path, class: "btn btn-info" %>
 <% if user_signed_in? %>
