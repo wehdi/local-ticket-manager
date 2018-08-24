@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/charliesome/better_errors.git
+  revision: 300949658e5cd729e4349eadb02be8d6e4d96503
+  branch: master
+  specs:
+    better_errors (2.5.0)
+      coderay (>= 1.0.0)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
+
+GIT
   remote: https://github.com/stympy/faker.git
   revision: b94eda03e8bd2af3ba0a740fbac83170ea1967f4
   branch: master
@@ -50,10 +60,6 @@ GEM
     autoprefixer-rails (8.6.4)
       execjs
     bcrypt (3.1.12)
-    better_errors (2.4.0)
-      coderay (>= 1.0.0)
-      erubi (>= 1.0.0)
-      rack (>= 0.9.0)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
     bootstrap (4.1.1)
@@ -189,7 +195,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  better_errors
+  better_errors!
   binding_of_caller
   bootstrap (~> 4.1.1)
   devise (~> 4.4, >= 4.4.3)

@@ -1,6 +1,4 @@
-<h2>Log in</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<!--<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
     <%= f.input :login, required: false, autofocus: true %>
     <%= f.input :password, required: false %>
@@ -13,3 +11,33 @@
 <% end %>
 
 <%= render "users/shared/links" %>
+-->
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div id="login">
+       <h3 class="text-center text-white pt-5">Login form</h3>
+       <div class="container">
+           <div id="login-row" class="row justify-content-center align-items-center">
+               <div id="login-column" class="col-md-6">
+                   <div id="login-box" class="col-md-12">
+                       <form id="login-form" class="form" action="" method="post">
+                           <h3 class="text-center text-info">Se connecter</h3>
+                           <div class="form-group">
+
+                               <%= f.input :login, required: false, autofocus: true, placeholder: "Nom d'utilisateur", label: "Username", wrapper_html: { class: 'text-info' } %>
+                           </div>
+                           <div class="form-group">
+                               <%= f.input :password, required: false, label: "Mot de passe",wrapper_html: { class: 'text-info' }, placeholder: "Mot de passe"%>
+                           </div>
+                           <div class="form-group text-center">
+                                <%= f.button :submit, "Connexion", class: "btn btn-lg btn-danger" %>
+                           </div>
+                           <div id="register-link" class="text-right">
+                               <a href="#" class="text-info">Demander un compte</a>
+                           </div>
+                       </form>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+<% end %>

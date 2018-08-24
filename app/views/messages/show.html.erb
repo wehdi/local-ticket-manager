@@ -1,15 +1,18 @@
-<h2><%= @message.title  %></h2>
-<p> creer par : <%= @message.user.username%> il y'a <%= time_ago_in_words(@message.created_at)%></p>
-<p><%= @message.description  %></p>
+<div class="container">
 
-<h4>Reponse : </h4>
-<%= render @message.comments  %>
-<h4> Reponse au message</h4>
-<%= render 'comments/form'  %>
-<%= link_to "List des demandes", messages_path, class: "btn btn-info" %>
-<% if user_signed_in? %>
-  <% if @message.user_id == current_user.id %>
-     <%= link_to "Editer votre demande", edit_message_path, class: "btn btn-primary" %>
-     <%= link_to "Suprimer", message_path(@message),method: :delete, data: {confirm: "Etes vous sure ?"}, class: "btn btn-danger" %>
+  <h2><%= @message.title  %></h2>
+  <p> creer par : <%= @message.user.username%> il y'a <%= time_ago_in_words(@message.created_at)%></p>
+  <p><%= @message.description  %></p>
+
+  <h4>Reponse : </h4>
+  <%= render @message.comments  %>
+  <h4> Reponse au message</h4>
+  <%= render 'comments/form'  %>
+  <%= link_to "List des demandes", messages_path, class: "btn btn-info" %>
+  <% if user_signed_in? %>
+    <% if @message.user_id == current_user.id %>
+       <%= link_to "Editer votre demande", edit_message_path, class: "btn btn-primary" %>
+       <%= link_to "Suprimer", message_path(@message),method: :delete, data: {confirm: "Etes vous sure ?"}, class: "btn btn-danger" %>
+    <% end %>
   <% end %>
-<% end %>
+</div>
