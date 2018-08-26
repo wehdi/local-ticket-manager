@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     @messages =
       if current_user.admin?
         Message.all.order('created_at DESC')
-               .all.paginate(page: params[:page], per_page: 8)
+               .all.paginate(page: params[:page], per_page: 9)
                .includes(:user)
       else
         current_user.messages.all.order('created_at DESC').includes(:user)

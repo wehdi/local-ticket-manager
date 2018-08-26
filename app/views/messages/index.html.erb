@@ -1,13 +1,26 @@
-<h1>List des demandes</h1>
 
+<div class="text-center">
+  <% if user_signed_in?  %>
+    <%= link_to "Nouvelle demande",new_message_path,
+                class: "btn btn-lg btn-danger text-center" %>
+  <% else  %>
+    <%= link_to "Nouvelle demande",new_user_session_path %>
+  <% end  %>
+  <h1>List des demandes</h1>
+</div>
+<div class="container d-flex h-100">
+ <div class="row justify-content-center align-self-center">
 <% @messages.each do |message| %>
-<h3> <%= message.title %></h3>
-<i> <%= message.user.username %></i>
-  <%= link_to "consulter", message_path(message), class:"btn btn-info" %>
+    <div class="card mr-3 mb-3" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= message.title %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= message.user.username %></h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <%= link_to "consulter", message_path(message), class:"btn btn-info" %>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
 <% end %>
-<% if user_signed_in?  %>
-  <%= link_to "Nouvelle demande",new_message_path %>
-<% else  %>
-  <%= link_to "Nouvelle demande",new_user_session_path %>
-<% end  %>
-<%= will_paginate @messages %>
+  </div>
+</div>
+  <%= will_paginate @collection, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
