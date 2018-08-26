@@ -1,7 +1,8 @@
 <h1>List des demandes</h1>
 
 <% @messages.each do |message| %>
-  <h3> <%= message.title %></h3>
+<h3> <%= message.title %></h3>
+<i> <%= message.user.username %></i>
   <%= link_to "consulter", message_path(message), class:"btn btn-info" %>
 <% end %>
 <% if user_signed_in?  %>

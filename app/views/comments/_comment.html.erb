@@ -5,9 +5,13 @@
 				<img src="https://api.adorable.io/avatars/54/abott@adorable.png" alt="" class="be-ava-comment">
 			</a>
 			</div>
+			<% if comment.user.admin? %>
+				<span class="badge badge-pill badge-primary">Admin</span>
+			<%end%>
 			<div class="be-comment-content">
 				<span class="be-comment-name">
-					<a href="blog-detail-2.html"><i>Par : <%= comment.user.username %> </a>
+					<a href="#">
+						<i>Par : <%= comment.user.username %> </a>
 					</span>
 				<span class="be-comment-time">
 					<i class="fa fa-clock-o"></i>

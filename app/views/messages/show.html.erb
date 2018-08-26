@@ -1,9 +1,12 @@
 <div class="container">
 
   <h2><%= @message.title  %></h2>
-  <p> creer par : <%= @message.user.username%> il y'a <%= time_ago_in_words(@message.created_at)%></p>
+  <% if @message.user.admin? %>
+    <span class="badge badge-pill badge-primary">Admin</span>
+  <%end%>
+  <p> Creer par : <%= @message.user.username%></p>
   <p><%= @message.description  %></p>
-
+  <i> il y'a <%= time_ago_in_words(@message.created_at)%></i>
   <h4>Reponse : </h4>
   <%= render @message.comments  %>
   <h4> Reponse au message</h4>
