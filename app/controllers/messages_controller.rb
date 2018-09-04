@@ -1,17 +1,14 @@
 # Messages Controller
 class MessagesController < ApplicationController
-  before_action :find_message, only: %I[show edit update destroy]
+  before_action :find_message, only: %I[show edit update destroy close]
+  #before_action only: %I[index archive] do
+  #  find_messages
+  #end
   before_action :authenticate_user!, except: [:welcome]
+
   def index
-    @messages =
-      if current_user.admin?
-        Message.all.order('created_at DESC')
-               .all.paginate(page: params[:page], per_page: 9)
-               .includes(:user)
-      else
-        current_user.messages.all.order('created_at DESC').includes(:user)
-      end
-  end
+  find_messages(false)
+ end
 
   def new
     @message = current_user.messages.build
@@ -45,6 +42,16 @@ class MessagesController < ApplicationController
     redirect_to messages_path
   end
 
+  def close
+    @message.close = true
+    @message.save
+    redirect_back(fallback_location: messages_path)
+  end
+
+  def archive
+    find_messages(true)
+  end
+
   private
 
   def message_params
@@ -53,5 +60,18 @@ class MessagesController < ApplicationController
 
   def find_message
     @message = Message.find(params[:id])
+  end
+
+  #
+  def find_messages(stat)
+    @messages =
+      if current_user.admin?
+
+        Message.where(close: stat).order('created_at DESC')
+               .all.paginate(page: params[:page], per_page: 9)
+               .includes(:user)
+      else
+        current_user.messages.all.order('created_at DESC').includes(:user)
+      end
   end
 end

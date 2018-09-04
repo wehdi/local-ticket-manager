@@ -17,7 +17,8 @@ end
   Message.create(
     title: Faker::Pokemon.move,
     description: Faker::Lorem.paragraphs(rand(15..80)).join('\n'),
-    user_id: Faker::Number.number(1)
+    user_id: Faker::Number.number(1),
+    close: Faker::Boolean.boolean
   )
 end
 60.times do

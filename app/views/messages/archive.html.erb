@@ -1,0 +1,20 @@
+<%= link_to 'Demande en cours', messages_path, class: 'btn btn-lg btn-success' %>
+<h1>List des archives</h1>
+</div>
+<div class="container d-flex h-100">
+<div class="row justify-content-center align-self-center">
+<% @messages.each do |message| %>
+  <div class="card mr-3 mb-3" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= message.title %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= message.user.username %></h6>
+      <p class="card-text"><%= message.description.truncate(75)%></p>
+        <span class="btn-group">
+          <%= link_to "consulter", message_path(message), class:"btn btn-info" %>
+        </span>
+    </div>
+  </div>
+<% end %>
+</div>
+</div>
+<%= will_paginate @collection, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>

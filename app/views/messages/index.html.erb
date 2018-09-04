@@ -1,6 +1,7 @@
 
 <div class="text-center">
-  <% if user_signed_in?  %>
+  <% if user_signed_in? %>
+  <%= button_to 'Consuler archive', archive_path, method: :get, class: 'btn btn-info' %>
     <%= link_to "Nouvelle demande",new_message_path,
                 class: "btn btn-lg btn-danger text-center" %>
   <% else  %>
@@ -15,12 +16,14 @@
       <div class="card-body">
         <h5 class="card-title"><%= message.title %></h5>
         <h6 class="card-subtitle mb-2 text-muted"><%= message.user.username %></h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <%= link_to "consulter", message_path(message), class:"btn btn-info" %>
-        <a href="#" class="card-link">Another link</a>
+        <p class="card-text"><%= message.description.truncate(75)%></p>
+          <span class="btn-group">
+            <%= link_to "consulter", message_path(message), class:"btn btn-info" %>
+            <%= button_to 'Archiver', close_path(message), method: :get, class: 'btn btn-danger' %>
+          </span>
       </div>
     </div>
 <% end %>
   </div>
 </div>
-  <%= will_paginate @collection, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+<%= will_paginate @collection, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
