@@ -19,7 +19,9 @@
         <p class="card-text"><%= message.description.truncate(75)%></p>
           <span class="btn-group">
             <%= link_to "consulter", message_path(message), class:"btn btn-info" %>
-            <%= button_to 'Archiver', close_path(message), method: :get, class: 'btn btn-danger' %>
+            <% if current_user.admin? %>
+              <%= button_to 'Archiver', close_path(message), method: :get, class: 'btn btn-danger' %>
+            <% end %>
           </span>
       </div>
     </div>

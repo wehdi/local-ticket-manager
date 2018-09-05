@@ -7,8 +7,8 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!, except: [:welcome]
 
   def index
-  find_messages(false)
- end
+    find_messages(false)
+  end
 
   def new
     @message = current_user.messages.build
@@ -42,6 +42,7 @@ class MessagesController < ApplicationController
     redirect_to messages_path
   end
 
+# Passe la column close a true = sujet clos
   def close
     @message.close = true
     @message.save
@@ -66,12 +67,12 @@ class MessagesController < ApplicationController
   def find_messages(stat)
     @messages =
       if current_user.admin?
-
         Message.where(close: stat).order('created_at DESC')
                .all.paginate(page: params[:page], per_page: 9)
                .includes(:user)
       else
-        current_user.messages.all.order('created_at DESC').includes(:user)
+        current_user.messages.where(close: stat).order('created_at DESC')
+        .all.paginate(page: params[:page], per_page: 9)
       end
   end
 end
