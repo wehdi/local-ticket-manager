@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+        <%= link_to "Messagerfie", root_path, class: "navbar-brand"  %>
+      <ul class="navbar-nav">
+        <% if user_signed_in? && current_user.admin? %>
+          <li class="nav-item"> <%= link_to "Ajouter un utilisateur", new_user_registration_path, class:"nav-link"  %></li>
+          <li class="nav-item"> <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete,class:"nav-link"  %></li>
+          <li class="nav-item"><%= link_to "Nouveau message", new_message_path, class: "nav-link" %></li>
+
+        <% elsif  user_signed_in? %>
+          <li class="nav-item"> <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete,class:"nav-link"  %></li>
+          <li class="nav-item"><%= link_to "Nouveau message", new_message_path, class: "nav-link" %></li>
+        <% else  %>
+          <li class="nav-item"> <%= link_to "Se connecter", new_user_session_path, class:"nav-link"  %></li>
+        <% end %>
+      </ul>
+    </div>
+</nav>

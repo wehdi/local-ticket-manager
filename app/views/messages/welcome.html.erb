@@ -1,7 +1,26 @@
-<h2>Local Ticket Manager</h2>
-<% if user_signed_in? %>
-<p>Bienvenu <i><%= current_user.username %></i></p>
-  <p>Status <i><%= current_user.admin? %></i></p>
-  <%= link_to "Tickets en cours", messages_path, class: "btn btn-lg btn-info"%>
-  <%= link_to "Creer un ticket", new_message_path, class: "btn btn-lg btn-info"%>
-<% end %>
+<div class="container">
+  <div class="">
+    <% if user_signed_in? %>
+      <p class="lead"> Bienvenu <strong><%= current_user.username.capitalize %></strong>
+        <% if current_user.admin? %>
+          <span class="badge badge-pill badge-danger"> Admin</span>
+        <% else %>
+          <span class="badge badge-pill badge-info">User</span>
+        <% end %>
+      </p>
+  </div>
+  <h2 class="text-center">Local Ticket Manager</h2>
+    <%= image_tag("employee-alone.svg",
+                  class: 'img-fluid rounded center mx-auto d-block img-thumbnail',
+                  style: 'width: 30%',alt: "employee-alone") %>
+
+    <div class="row align-items-center justify-content-center mt-4">
+      <%= link_to "Tickets en cours", messages_path,
+                    class: "btn btn-lg btn-outline-primary btn-block",
+                    style: "width: 70%"%>
+      <%= link_to "Creer un ticket", new_message_path,
+                    class: "btn btn-lg btn-outline-success btn-block",
+                    style: "width: 70%"%>
+    </div>
+  <% end %>
+</div>

@@ -9,23 +9,7 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-sm bg-light navbar-light">
-          <%= link_to "Messagerie", root_path, class: "navbar-brand"  %>
-
-        <ul class="navbar-nav">
-
-          <% if user_signed_in? %>
-          <li class="nav-item"> <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete,class:"nav-link"  %></li>
-          <% else  %>
-            <li class="nav-item"> <%= link_to "Inscription", new_user_registration_path, class:"nav-link"  %></li>
-          <li class="nav-item"> <%= link_to "Se connecter", new_user_session_path, class:"nav-link"  %></li>
-          <% end %>
-          <% if user_signed_in? %>
-           <li class="nav-item"><%= link_to "Nouveau message", new_message_path, class: "nav-link" %></li>
-          <% end  %>
-        </ul>
-      </div>
-    </nav>
+    <%= render partial: 'layouts/partials/navbar' %>
     <p class="notice"> <%= notice %></p>
     <p class="alert"> <%= alert %></p>
     <%= yield %>
