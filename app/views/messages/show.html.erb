@@ -5,10 +5,10 @@
     <span class="badge badge-pill badge-primary">Admin</span>
   <%end%>
   <p> Creer par : <%= @message.user.username%></p>
-  <p><%= @message.description  %></p>
+  <p><%= @message.description.html_safe  %></p>
   <i> il y'a <%= time_ago_in_words(@message.created_at)%></i>
   <h4>Reponse : </h4>
-  <%= render @message.comments  %>
+    <%= render @message.comments  %>
   <h4> Reponse au message</h4>
   <%= render 'comments/form'  %>
   <%= link_to "List des demandes", messages_path, class: "btn btn-info" %>

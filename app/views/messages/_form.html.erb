@@ -1,5 +1,20 @@
-<%= simple_form_for @message do |m| %>
-  <%= m.input :title, label: "Titre de la demande" %>
-  <%= m.input :description %>
-  <%= m.button :submit, "Save" %>
+<%= simple_form_for @message, html: { class: 'needs-validation'} do |m| %>
+  <div class="form-group">
+    <%= m.input :title, class: 'form-control',
+                placeholder: 'Titre de la demande',
+                label: 'Titre de la demande',
+                wrapper_html: { class: 'text-info' }  %>
+    <small class="form-text text-muted">
+      Donner un titre excplicite
+    </small>
+    <%= m.input :description, as: :text, class: 'form-control tinymce',
+                placeholder: 'Poster votre demande',
+                label: 'Descirption',
+                wrapper_html: { class: 'text-info' },
+                rows: 40,
+                col: 120,
+                input_html: {class: "tinymce"}  %>
+    <%= tinymce %>
+    <%= m.button :submit, "Publier", class: 'btn btn-outline-primary' %>
+  </div>
 <% end %>
