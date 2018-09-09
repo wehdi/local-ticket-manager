@@ -11,21 +11,22 @@
 			<div class="be-comment-content">
 				<span class="be-comment-name">
 					<a href="#">
-						<i>Par : <%= comment.user.username %> </a>
+						<i>Par : <%= comment.user.username.capitalize %> </a>
 					</span>
 				<span class="be-comment-time">
 					<i class="fa fa-clock-o"></i>
 					     il y a <%= time_ago_in_words(comment.created_at)%></i>
 				</span>
 				<p class="be-comment-text">
-					<%= comment.content %>
+					<%= comment.content.html_safe %>
+				</p>
 					<% if user_signed_in? %>
 							<% if comment.user_id == current_user.id || current_user.admin? %> </br>
-								<%= link_to "Edit", edit_message_comment_path(comment.message, comment), class: 'btn btn-sm btn-outline-info' %>
+								<%= link_to "Edit", edit_message_comment_path(comment.message, comment), class: 'btn btn-sm btn-outline-warning' %>
 								<%= link_to "Supprimer", message_comment_path(comment.message, comment), method: :delete, data: { confirm: "Etes vous sure ?"},class: 'btn btn-sm btn-outline-warning' %>
 							<% end %>
 					<% end %>
-				</p>
+
 			</div>
 		</div>
 	</div>

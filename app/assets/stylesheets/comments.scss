@@ -29,6 +29,7 @@ body{
 
 .be-comment-content {
     margin-left: 80px;
+
 }
 
 .be-comment-content span {
@@ -57,12 +58,12 @@ body{
 
 .be-comment-time {
     font-size: 11px;
-    color: #b4b7c1;
+    color: #000000;
 }
 
-.be-comment-text {
-    font-size: 13px;
-    line-height: 18px;
+.be-comment-text+p  {
+    font-size: 1.2em;
+    line-height: 26px;
     color: #7a8192;
     display: block;
     background: #f6f6f7;

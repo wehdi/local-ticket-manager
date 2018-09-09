@@ -1,9 +1,11 @@
 menubar: false
 toolbar:
-  - styleselect | bold italic | undo redo
+  - styleselect | bold italic | undo redo | forecolor backcolor
   - image | link
 plugins:
   - image
   - link
   - media
   - lists
+  - textcolor
+  - preview

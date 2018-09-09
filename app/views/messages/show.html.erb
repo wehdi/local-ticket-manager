@@ -1,13 +1,13 @@
 <div class="container">
-
-  <h2><%= @message.title  %></h2>
+  <h2><%= @message.title.capitalize  %></h2>
   <% if @message.user.admin? %>
     <span class="badge badge-pill badge-primary">Admin</span>
   <%end%>
   <p> Creer par : <%= @message.user.username%></p>
-  <p><%= @message.description.html_safe  %></p>
-  <i> il y'a <%= time_ago_in_words(@message.created_at)%></i>
-  <h4>Reponse : </h4>
+  <div class="rounded border bg-light bulle">
+    <p><%= @message.description.capitalize.html_safe  %></p>
+    <i> il y'a <%= time_ago_in_words(@message.created_at)%></i>
+  </div>
     <%= render @message.comments  %>
   <h4> Reponse au message</h4>
   <%= render 'comments/form'  %>

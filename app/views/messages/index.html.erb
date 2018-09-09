@@ -1,31 +1,40 @@
 
 <div class="text-center">
+  <span class="btn-group">
   <% if user_signed_in? %>
-  <%= button_to 'Consuler archive', archive_path, method: :get, class: 'btn btn-info' %>
+  <%= button_to 'Consuler archive', archive_path, method: :get, class: 'btn btn-warning mr-2' %>
     <%= link_to "Nouvelle demande",new_message_path,
-                class: "btn btn-lg btn-danger text-center" %>
+                class: "btn btn-danger text-center" %>
   <% else  %>
     <%= link_to "Nouvelle demande",new_user_session_path %>
   <% end  %>
+  </span>
   <h1>List des demandes</h1>
 </div>
-<div class="container d-flex h-100">
+<div class="container">
  <div class="row justify-content-center align-self-center">
 <% @messages.each do |message| %>
     <div class="card mr-3 mb-3" style="width: 18rem;">
+      <div class="card-header">
+      <%= message.title.titleize %>
+      <span class="badge badge-pill badge-success ml-2"> En cours</span>
+    </div>
       <div class="card-body">
-        <h5 class="card-title"><%= message.title %></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><%= message.user.username %></h6>
-        <p class="card-text"><%= message.description.truncate(75).html_safe%></p>
+        <p class="card-text"><%= message.description.capitalize.truncate(75).html_safe%></p>
+      </div>
+      <div class="card-footer bg-warning">
           <span class="btn-group">
-            <%= link_to "consulter", message_path(message), class:"btn btn-info" %>
+            <%= link_to "consulter", message_path(message), class:'btn btn-info btn-block mr-2' %>
             <% if current_user.admin? %>
-              <%= button_to 'Archiver', close_path(message), method: :get, class: 'btn btn-danger' %>
+              <%= button_to 'Archiver', close_path(message), method: :get, class: 'btn btn-block btn-danger mt-a' %>
             <% end %>
           </span>
+          <small class='text-nowrap bd-highlight text-danger'> Par :<%=  message.user.username.capitalize %>,
+                                                  il y'a <%= time_ago_in_words(message.created_at)%></small>
       </div>
     </div>
 <% end %>
+<%= will_paginate @collection,
+    renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
   </div>
 </div>
-<%= will_paginate @collection, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
