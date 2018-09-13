@@ -1,12 +1,12 @@
-<div class="container">
+<div class="container mt-2">
   <h2><%= @message.title.capitalize  %></h2>
   <% if @message.user.admin? %>
     <span class="badge badge-pill badge-primary">Admin</span>
   <%end%>
-  <p> Creer par : <%= @message.user.username%></p>
+  <p> <span class="be-comment-name">Par : <%= @message.user.username.capitalize%></span></p>
   <div class="rounded border bg-light bulle">
+    <span class="be-comment-time float-right">il y'a <%= time_ago_in_words(@message.created_at)%></span>
     <p><%= @message.description.capitalize.html_safe  %></p>
-    <i> il y'a <%= time_ago_in_words(@message.created_at)%></i>
   </div>
     <%= render @message.comments  %>
   <h4> Reponse au message</h4>

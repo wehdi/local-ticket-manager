@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+# ruby encoding: utf-8
 20.times do
   User.create(
     username: Faker::StarWars.planet,
@@ -13,10 +13,10 @@
     password: Faker::Internet.password(6, 20)
   )
 end
-60.times do
+100.times do
   Message.create(
     title: Faker::Pokemon.move,
-    description: Faker::Lorem.paragraphs(rand(15..80)).join('\n'),
+    description: Faker::Lorem.paragraphs(rand(1..3)).join('\n'),
     user_id: Faker::Number.number(1),
     close: Faker::Boolean.boolean
   )

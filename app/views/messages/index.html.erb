@@ -1,5 +1,5 @@
 
-<div class="text-center">
+<div class="text-center mt-2">
   <span class="btn-group">
   <% if user_signed_in? %>
   <%= button_to 'Consuler archive', archive_path, method: :get, class: 'btn btn-warning mr-2' %>
@@ -24,7 +24,7 @@
       </div>
       <div class="card-footer bg-warning">
           <span class="btn-group">
-            <%= link_to "consulter", message_path(message), class:'btn btn-info btn-block mr-2' %>
+            <%= link_to "Consulter", message_path(message), class:'btn btn-info btn-block mr-2' %>
             <% if current_user.admin? %>
               <%= button_to 'Archiver', close_path(message), method: :get, class: 'btn btn-block btn-danger mt-a' %>
             <% end %>

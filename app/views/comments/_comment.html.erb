@@ -12,10 +12,9 @@
 				<span class="be-comment-name">
 					<a href="#">
 						<i>Par : <%= comment.user.username.capitalize %> </a>
-					</span>
+				</span>
 				<span class="be-comment-time">
-					<i class="fa fa-clock-o"></i>
-					     il y a <%= time_ago_in_words(comment.created_at)%></i>
+					<i class="fa fa-clock-o">il y a <%= time_ago_in_words(comment.created_at)%></i>
 				</span>
 				<p class="be-comment-text">
 					<%= comment.content.html_safe %>

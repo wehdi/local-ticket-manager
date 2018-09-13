@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   validates :username,
             presence: true,
-            uniqueness: { case_sensitive: false },
-            format: { with: /\A[a-zA-Z0-9]*\z/ }
+            uniqueness: { case_sensitive: false }
+            #format: { with: /\A[a-zA-Z0-9]*\z/ }
   validates :admin, presence: false
 
   # Include default devise modules. Others available are:
