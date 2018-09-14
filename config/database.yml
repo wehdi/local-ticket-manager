@@ -22,7 +22,9 @@ default: &default
   pool: 5
   username: wehdi
   password: hdime
-  #host: 172.17.0.1
+  #port: 5432
+  #host: localhost
+  host: 172.18.0.1
   timeout: 5000
 
 development:
@@ -32,7 +34,9 @@ development:
   pool: 5
   username: wehdi
   password: hdime
-  #host: 172.17.0.1
+  #port: 5432
+  #host: localhost
+  host: 172.18.0.1
   timeout: 5000
 
   production:
@@ -67,5 +71,6 @@ test:
   pool: 5
   username: wehdi
   password: hdime
-  #host: 172.17.0.1
+  #host: localhost
+  host: 172.18.0.1
   timeout: 5000

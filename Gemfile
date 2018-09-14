@@ -5,14 +5,15 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 ruby '2.5.1'
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '~> 4.1', '>= 4.1.3'
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'material_icons'
-gem 'pg', '~> 0.18.4'
-gem 'tinymce-rails'
+gem 'pg', '~> 1.1', '>= 1.1.3'
 gem 'rails', '~> 5.2', '>= 5.2.1'
+gem 'tinymce-rails'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap4'
+gem 'mini_racer'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
@@ -46,7 +47,8 @@ group :development, :test do
 end
 
 group :development do
-  # Designed to help you increase your application's performance by reducing the number of queries it makes
+  # Designed to help you increase your application's performance
+  # by reducing the number of queries it makes
   gem 'bullet'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   # gem 'listen', '>= 3.0.5', '< 3.2'

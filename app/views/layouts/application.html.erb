@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Local Ticket Manager</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,14 +11,19 @@
   </head>
 
   <body>
-    <%= render partial: 'layouts/partials/navbar' %>
-    <% if !(notice.nil? || notice.empty?) %>
-      <p class="notice alert alert-success"> <%= notice %></p>
-    <% end %>
-    <% if !(alert.nil? || alert.empty?) %>
-      <p class="alert alert-danger"> <%= alert %></p>
-    <% end %>
+    <div class="cotnainer-fluid">
+      <%= render partial: 'layouts/partials/navbar' %>
+      <div class="row">
+      <% if !(notice.nil? || notice.empty?) %>
+        <p class="notice alert alert-success"> <%= notice %></p>
+      <% end %>
+      <% if !(alert.nil? || alert.empty?) %>
+        <p class="alert alert-danger"> <%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </div>
 
-    <%= yield %>
+    </div>
+
   </body>
 </html>
