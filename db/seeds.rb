@@ -16,15 +16,15 @@ end
 100.times do
   Message.create(
     title: Faker::Pokemon.move,
-    description: Faker::Lorem.paragraphs(rand(1..3)).join('\n'),
-    user_id: Faker::Number.number(1),
+    description: Faker::Lorem.paragraphs(rand(2..4)).join('\n'),
+    user_id: Faker::Number.between(1, 25),
     close: Faker::Boolean.boolean
   )
 end
 60.times do
   Comment.create(
-    content: Faker::Lorem.paragraphs(rand(10..40)).join('\n'),
-    user_id: Faker::Number.number(1),
-    message_id: Faker::Number.number(2)
+    content: Faker::Lorem.paragraphs(rand(1..3)).join('\n'),
+    user_id: Faker::Number.between(1, 25),
+    message_id: Faker::Number.between(1, 25)
   )
 end

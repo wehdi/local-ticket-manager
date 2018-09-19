@@ -24,7 +24,7 @@ default: &default
   password: hdime
   #port: 5432
   #host: localhost
-  host: 172.18.0.1
+  # host: 172.18.0.1 for docker
   timeout: 5000
 
 development:
@@ -36,7 +36,7 @@ development:
   password: hdime
   #port: 5432
   #host: localhost
-  host: 172.18.0.1
+  # host: 172.18.0.1 for docker
   timeout: 5000
 
   production:
@@ -72,5 +72,5 @@ test:
   username: wehdi
   password: hdime
   #host: localhost
-  host: 172.18.0.1
+  # host: 172.18.0.1 for docker
   timeout: 5000

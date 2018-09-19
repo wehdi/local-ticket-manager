@@ -13,16 +13,12 @@
   <body>
     <div class="cotnainer-fluid">
       <%= render partial: 'layouts/partials/navbar' %>
-      <div class="row">
       <% if !(notice.nil? || notice.empty?) %>
-        <p class="notice alert alert-success"> <%= notice %></p>
       <% end %>
       <% if !(alert.nil? || alert.empty?) %>
         <p class="alert alert-danger"> <%= alert %></p>
       <% end %>
       <%= yield %>
-    </div>
-
     </div>
 
   </body>
