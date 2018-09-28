@@ -3,19 +3,24 @@
       <% if @message.user.admin? %>
           <span class="badge badge-pill badge-primary">Admin</span>
       <%end%>
-      <p> <span class="be-comment-name">Par : <%= @message.user.username.capitalize%></span></p>
+      <p> <span class="be-comment-name">Par : 
+             <%= @message.user.username.capitalize%>
+          </span>
+      </p>
       <div class="rounded border bg-light bulle">
-        <span class="be-comment-time float-right">il y'a <%= time_ago_in_words(@message.created_at)%></span>
-        <p><%= @message.description.capitalize.html_safe  %></p>
+        <span class="be-comment-time float-right">il y'a 
+          <%= time_ago_in_words(@message.created_at)%>
+        </span>
+        <p><%= @message.description.humanize.html_safe  %></p>
+        <% if @message.user_id == current_user.id || current_user.admin? %>
+          <%= link_to "Editer votre demande", edit_message_path, 
+                        class: "btn btn-primary" %>
+          <%= link_to "Suprimer", message_path(@message),method: :delete, 
+            data: {confirm: "Etes vous sure ?"}, class: "btn btn-danger" %>
+        <% end %>
       </div>
         <%= render @message.comments  %>
       <h4> Reponse au message</h4>
       <%= render 'comments/form'  %>
-      <%= link_to "List des demandes", messages_path, class: "btn btn-info" %>
-      <% if user_signed_in? %>
-        <% if @message.user_id == current_user.id %>
-          <%= link_to "Editer votre demande", edit_message_path, class: "btn btn-primary" %>
-          <%= link_to "Suprimer", message_path(@message),method: :delete, data: {confirm: "Etes vous sure ?"}, class: "btn btn-danger" %>
-        <% end %>
-      <% end %>
+      <%= link_to "List des demandes", messages_path, class: "btn btn-info" %>  
     </div>

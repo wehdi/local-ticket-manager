@@ -1,2 +1,14 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<%= simple_form_for @user, html: { class: 'needs-validation'} do |u| %>
+  <div class="form-group">
+    <%= u.input :username, class: 'form-control',
+                placeholder: "Nom d'utilisateur",
+                label: "Nom d'utilisateur",
+                wrapper_html: { class: 'text-primary' }  %>
+
+    <%= u.input :approved, as: :boolean, label: "Actif", required: false %>
+    <%= u.input :admin, as: :boolean, label: "Administrateur", 
+        required: false %>
+    
+    <%= u.button :submit, "Mettre à jour", class: 'btn btn-outline-primary' %>
+  </div>
+<% end %>

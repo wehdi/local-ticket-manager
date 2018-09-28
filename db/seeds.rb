@@ -9,8 +9,8 @@
 20.times do
   User.create(
     username: Faker::StarWars.planet,
-    email: Faker::Internet.free_email,
-    password: Faker::Internet.password(6, 20)
+    password: Faker::Internet.password(6, 20),
+    approved: Faker::Boolean.boolean
   )
 end
 100.times do

@@ -16,7 +16,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable,
-         :validatable, authentication_keys: { email: false, login: false }
+         :validatable, authentication_keys: { email: false, login: true }
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
@@ -34,5 +34,9 @@ class User < ApplicationRecord
 
   def inactive_message
     approved? ? super : :not_approved
+  end
+
+  def email_required?
+    false
   end
 end

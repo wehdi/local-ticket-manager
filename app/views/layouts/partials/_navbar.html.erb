@@ -2,38 +2,21 @@
         <%= link_to '<i class="material-icons">face</i> LTM'.html_safe,
                       root_path, class: "navbar-brand" %>
       <ul class="navbar-nav">
-        <% if user_signed_in? && current_user.admin? %>
+        <% if user_signed_in? %>
           <li class="nav-item"><%= link_to 'Nouveau message
             <i class="material-icons">create_new_field</i>'.html_safe,
             new_message_path, class: "nav-link" %>
           </li>
-          <li class="nav-item"> <%= link_to 'Se deconnecter
-            <i class="material-icons">cancel</i>'.html_safe,
-            destroy_user_session_path, method: :delete,class:"nav-link" %>
-          </li>
-          <li class="nav-item"> <%= link_to 'Utilisateurs
-            <i class="material-icons">cancel</i>'.html_safe, users_path,
-            class:"nav-link"  %>
-          </li>
-
-        <% elsif  user_signed_in? %>
-          <li class="nav-item"><%= link_to 'Nouveau message
-            <i class="material-icons">create_new_field</i>'.html_safe,
-            new_message_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item"> <%= link_to 'Se deconnecter
-            <i class="material-icons">cancel</i>'.html_safe,
-            destroy_user_session_path, method: :delete,class:"nav-link"%>
-          </li>
+          <% if current_user.admin? %>
+            <li class="nav-item"> <%= link_to 'Utilisateurs
+              <i class="material-icons">cancel</i>'.html_safe, users_path,
+              class:"nav-link"  %>
+            </li>
+          <% end%>
+          <%= disconnect %>
         <% else  %>
-          <li class="nav-item"><%= link_to 'Inscription
-            <i class="material-icons">person_add</i>'.html_safe,
-            new_user_registration_path, class:"nav-link"%>
-          </li>
-          <li class="nav-item"> <%= link_to 'Se connecter
-            <i class="material-icons">account_circle</i>'.html_safe,
-            new_user_session_path, class:"nav-link" %>
-          </li>
+             <%= sing_up %>
+             <%= login %>
         <% end %>
       </ul>
     </div>

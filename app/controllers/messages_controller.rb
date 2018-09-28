@@ -1,10 +1,7 @@
 # Messages Controller
 class MessagesController < ApplicationController
-  before_action :find_message, only: %I[show edit update destroy close]
-  #before_action only: %I[index archive] do
-  #  find_messages
-  #end
   before_action :authenticate_user!, except: [:welcome]
+  before_action :find_message, only: %I[show edit update destroy close]
 
   def index
     find_messages(false)

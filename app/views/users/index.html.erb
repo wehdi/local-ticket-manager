@@ -1,13 +1,15 @@
 <div class="container">
   <ul class="list-group">
     <% @users.each do |user| %>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <%= user.email %>
+      <li class="list-group-item d-flex justify-content-between align-items-center">  
+        <%= user.username %>
         <span class="badge badge-primary badge-pill">
           <%= user.approved %>
         </span>
+        <div>
+        <%= link_to "Show", user_path(user), class: 'btn btn-warning'%>
         <%= link_to "Edit", edit_user_path(user), class: 'btn btn-danger'%>
-      </li>
+        </div>
       <% end %>
    </ul>
 </div>

@@ -1,1 +1,6 @@
-<h1>This is test</h1>
+<h1>User info</h1>
+<div>
+<p><%= @user.username %></p>
+<p><%= @user.approved? %></p>
+<%= link_to "Edit", edit_user_path(@user), class: 'btn btn-danger'%>
+</div>
