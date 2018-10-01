@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :comments
     end
     root 'messages#welcome'
+    get ':id/users/edit', to: 'users#edit'
     # Route to call method for close message
     get '/close/:id', to: 'messages#close', as: 'close'
     get '/archive/', to: 'messages#archive', as: 'archive'

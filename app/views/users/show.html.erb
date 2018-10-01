@@ -1,6 +1,10 @@
-<h1>User info</h1>
-<div>
-<p><%= @user.username %></p>
-<p><%= @user.approved? %></p>
-<%= link_to "Edit", edit_user_path(@user), class: 'btn btn-danger'%>
+
+<div class="container">
+    <div class="shadow-sm p-3 mb-5 bg-light mt-5">
+        <p>Nom d'utilisateur : <%= @user.username %></p>
+        <p>Actif : <%= @user.approved? %></p>
+        <p>Administrateur : <%= @user.admin? %></p>
+        <%= link_to "Edit", edit_user_registration_path(@user), 
+                            class: 'btn btn-info'%>
+    <div>
 </div>

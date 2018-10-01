@@ -43,6 +43,7 @@ gem 'rails-ujs'
 gem 'simple_form', '~> 4.0', '>= 4.0.1'
 
 group :development, :test do
+  gem 'byebug'
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
 end
 

@@ -1,14 +1,35 @@
-<%= simple_form_for @user, html: { class: 'needs-validation'} do |u| %>
-  <div class="form-group">
-    <%= u.input :username, class: 'form-control',
-                placeholder: "Nom d'utilisateur",
-                label: "Nom d'utilisateur",
-                wrapper_html: { class: 'text-primary' }  %>
+<div class="row justify-content-center align-items-center ">
+    <div class="shadow-lg p-3 mb-5 bg-white 
+            rounded w-50 p-3 center mt-5 border border-dark">
+        <div class="text-monospace text-center">
+            Formulaire d'inscription
+        </div>
+        <%= simple_form_for @user,html: { class: 'needs-validation'} do |u| %>
+           <%= u.input :username, required: true, autofocus: true,
+                      placeholder: "Nom d'utilisateur",
+                      label: "Nom d'utilisateur", 
+                      wrapper_html: { class: 'text-monospace text-dark' }%>
+            <%= u.input :password, required: true, 
+                    hint: ("#{@minimum_password_length} 
+                    characters minimum" if @minimum_password_length),
+                    label: "Mot de passe",
+                    wrapper_html: { class: 'text-monospace text-dark' }, 
+                    placeholder: "Mot de passe" %>
 
-    <%= u.input :approved, as: :boolean, label: "Actif", required: false %>
-    <%= u.input :admin, as: :boolean, label: "Administrateur", 
-        required: false %>
+          <%= u.input :password_confirmation, required: true,
+                    hint: ("#{@minimum_password_length} 
+                    characters minimum" if @minimum_password_length),
+                    label: "Confirmation mot de passe",
+                    wrapper_html: { class: 'text-monospace text-dark' }, 
+                    placeholder: "Confirmation mot de passe" %>
+          <%= u.input :admin, as: :boolean, label: "Administrateur", 
+                      required: false %>
+
+          <%= u.input :approved, as: :boolean, 
+                      label: "Actif", required: false %>
     
-    <%= u.button :submit, "Mettre à jour", class: 'btn btn-outline-primary' %>
-  </div>
-<% end %>
+            <%= u.button :submit, "Mettre à jour", 
+                  class: 'btn btn-outline-primary' %>
+        <% end %>    
+    </div>
+</div>

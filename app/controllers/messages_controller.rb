@@ -67,6 +67,7 @@ class MessagesController < ApplicationController
         Message.where(close: stat).order('created_at DESC')
                .all.paginate(page: params[:page], per_page: 9)
                .includes(:user)
+        
       else
         current_user.messages.where(close: stat).order('created_at DESC')
         .all.paginate(page: params[:page], per_page: 9)

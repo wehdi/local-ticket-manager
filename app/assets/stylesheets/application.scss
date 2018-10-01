@@ -15,21 +15,10 @@
  */
 @import "bootstrap";
 body{
-  background-size: 50px 50px;
-  background-color: #0ae;
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
-  background-image: -moz-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
-  background-image: linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
-  -pie-background: linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent) 0 0 / 50px #0ae;
-  behavior: url(/pie/PIE.htc)
-}
-.bulle {
-  width: 100%;
-  display:inline-block;
-  *display:inline;/* ie7 and under inline-block hack */
-  *zoom:1.0;/* "  " */
-  p, h1,h2,h3,h4,h5,h6{
-    margin: 1em 1em 1em 1em;
-    padding: 1px 1px 1px 1px
-  }
+  background: #43C6AC;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #F8FFAE, #43C6AC);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #F8FFAE, #43C6AC);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }

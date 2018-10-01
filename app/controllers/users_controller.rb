@@ -25,10 +25,10 @@ class UsersController < ApplicationController
     end
   end
 
-  #private
+  private
 
   def user_params
-    params.require(:user).permit(:username,:approved)
+    params.require(:user).permit(:username,:approved,:password,:admin)
   end
 
    def find_user
