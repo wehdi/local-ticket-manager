@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # ruby encoding: utf-8
-20.times do
+=begin 20.times do
   User.create(
     username: Faker::StarWars.planet,
     password: Faker::Internet.password(6, 20),
@@ -28,3 +28,11 @@ end
     message_id: Faker::Number.between(1, 25)
   )
 end
+=end
+
+ User.create(
+    username: 'wehdi',
+    password: 'azerty',
+    approved: true,
+    admin: true
+  )
