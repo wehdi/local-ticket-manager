@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/stympy/faker.git
-  revision: 248fb59b6fe3144418efe05288f8ebf7f44260a0
+  revision: d5d22148b4144cfc165ea9b8b8551cec11ba88f7
   branch: master
   specs:
     faker (1.9.1)
@@ -117,7 +117,7 @@ GEM
     mimemagic (0.3.2)
     mini_mime (1.0.1)
     mini_portile2 (2.3.0)
-    mini_racer (0.2.3)
+    mini_racer (0.2.0)
       libv8 (>= 6.3)
     minitest (5.11.3)
     multi_json (1.13.1)
@@ -165,7 +165,7 @@ GEM
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
     ruby_dep (1.5.0)
-    sass (3.6.0)
+    sass (3.5.7)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -246,4 +246,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.5
+   1.16.4
