@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module MessageBoard
   class Application < Rails::Application
+
+    config.secret_key_base = 'adfMmsdfsdmfsdfisdfsnf'
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.i18n.available_locales = %I[en fr]

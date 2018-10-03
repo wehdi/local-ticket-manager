@@ -39,7 +39,7 @@ development:
   # host: 172.18.0.1 for docker
   timeout: 5000
 
-  production:
+production:
   <<: *default
   database: messageboard
 
