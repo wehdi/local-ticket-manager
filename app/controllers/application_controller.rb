@@ -13,7 +13,9 @@ class ApplicationController < ActionController::Base
   def default_url_options(options ={})
     { locale: I18n.locale}.merge options
   end
-
+  def permission_denied
+   render :file => "public/401.html", :status => :unauthorized
+  end
   protected
 
   # Allow only the indiocated parameters to pass in the request
@@ -23,9 +25,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def permission_denied
-  render :file => "public/402.html", :status => :unauthorized
-end
+  
 
   
 end
