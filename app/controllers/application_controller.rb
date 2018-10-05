@@ -19,8 +19,9 @@ class ApplicationController < ActionController::Base
   # Allow only the indiocated parameters to pass in the request
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |user|
-      user.permit(:username, :password, :password_confirmation, :admin)
+      user.permit(:username, :email, :password, :password_confirmation, :admin)
     end
-    
   end
+
+  
 end

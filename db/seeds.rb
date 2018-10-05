@@ -30,9 +30,10 @@ end
 end
 =end
 
- User.create(
-    username: 'wehdi',
+User.create(
+    username: 'wehdi'
     password: 'azerty',
     approved: true,
-    admin: true
+    admin: true,
+    email: "whae@faf.fr"
   )
