@@ -23,5 +23,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def permission_denied
+  render :file => "public/402.html", :status => :unauthorized
+end
+
   
 end
